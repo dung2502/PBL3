@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="container-card">
+    <div class="d-flex flex-wrap">
+        <div th:each="certification : ${listCertification}" class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+                <th:block th:with="imagePath='../../static' + ${certification.image}">
+                    <img th:src="${imagePath}" alt="Image">
+                </th:block>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${certification.name}"></h5>
+                    <p class="card-text" th:text="${certification.describe}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
